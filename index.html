@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colecionador de Comandos</title>
+<link rel="stylesheet" href="css/app.css">
+  <!-- PWA:inicio (gerado pelo Mini SK — pode refazer no painel 📱 PWA) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6fbd92">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Colecionador">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      addEventListener('load', function () { navigator.serviceWorker.register('service-worker.js').catch(function (e) { console.warn('Service worker:', e); }); });
+    }
+  </script>
+  <!-- PWA:fim -->
+</head>
+<body>
+<header>
+  <b>🧰 Colecionador</b><span class="chip" id="versao">v16/11-B</span>
+  <span class="cresce"></span>
+  <button class="ic" id="bt-qr" title="Transformar texto ou código em QR Code" aria-label="Texto em QR">🔳</button>
+  <button class="ic" id="bt-ler" title="Ler QR Code" aria-label="Ler QR Code">📷</button>
+  <button class="ic" id="bt-menu" title="Guardar e trazer" aria-label="Guardar e trazer">⇅</button>
+</header>
+<main>
+  <input type="search" id="busca" placeholder="🔍 Procurar (ex.: voz, ollama, backup, pasta…)">
+  <div class="filtros" id="filtros"></div>
+  <div id="lista"></div>
+  <p class="mu centro" id="vazio" hidden>Nada encontrado.</p>
+</main>
+<button class="novo" id="bt-novo" title="Guardar um comando ou arquivo novo">＋ Novo</button>
+
+<div class="fundo" id="modal" hidden><div class="caixa" id="caixa"></div></div>
+
+<script src="js/pacote-claude.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
